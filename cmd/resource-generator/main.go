@@ -201,6 +201,10 @@ var resources []templateFields = []templateFields{
 		Name:       "RegisteredLimit",
 		IsNotNamed: true,
 	},
+	{
+		Name:       "Limit",
+		IsNotNamed: true,
+	},
 }
 
 // These resources won't be generated
