@@ -217,6 +217,12 @@ var resources []templateFields = []templateFields{
 				JSONPath:    ".status.resource.resourceLimit",
 				Description: "The override value of this limit",
 			},
+			{
+				Name:        "Policy",
+				Type:        "string",
+				JSONPath:    ".spec.managementPolicy",
+				Description: "Whether this limit is imported",
+			},
 		},
 	},
 }
