@@ -5430,6 +5430,13 @@ func schema_openstack_resource_controller_v2_api_v1alpha1_LimitFilter(ref common
 				Description: "LimitFilter defines an existing resource by its properties",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
+					"description": {
+						SchemaProps: spec.SchemaProps{
+							Description: "description of the existing resource",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 					"serviceRef": {
 						SchemaProps: spec.SchemaProps{
 							Description: "serviceRef is a reference to the ORC Service which this resource is associated with.",
@@ -5560,7 +5567,6 @@ func schema_openstack_resource_controller_v2_api_v1alpha1_LimitResourceSpec(ref 
 					"serviceRef": {
 						SchemaProps: spec.SchemaProps{
 							Description: "serviceRef is a reference to the ORC Service which this resource is associated with.",
-							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -5582,7 +5588,6 @@ func schema_openstack_resource_controller_v2_api_v1alpha1_LimitResourceSpec(ref 
 					"resourceName": {
 						SchemaProps: spec.SchemaProps{
 							Description: "resourceName is the name of the resource this limit is associated with.",
-							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
 						},
