@@ -19,3 +19,7 @@ were imported resources and we only deleted the ORC representation of it.
 ## Step 03
 
 Delete the Limit and validate that all resources are gone.
+
+## Step 04
+
+Disable domain to facilitate domain deletion.

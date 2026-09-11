@@ -15,3 +15,7 @@ Revert the resource to its original value and verify that the resulting object m
 ## Step 03
 
 Replacing `projectRef` with `domainRef` should fail.
+
+## Step 04
+
+Disable domain to facilitate domain deletion.

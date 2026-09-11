@@ -3,7 +3,7 @@
 apiVersion: openstack.k-orc.cloud/v1alpha1
 kind: Domain
 metadata:
-  name: domain-limit-create-minimal
+  name: domain-limit-import-error
 status:
   resource:
     enabled: false

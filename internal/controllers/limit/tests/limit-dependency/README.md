@@ -18,4 +18,4 @@ Delete all the dependencies and check that ORC prevents deletion since there is 
 
 ## Step 04
 
-Delete the Limits and validate that all resources are gone.
+Delete the Limits/RegisteredLimits and validate that all resources are gone.

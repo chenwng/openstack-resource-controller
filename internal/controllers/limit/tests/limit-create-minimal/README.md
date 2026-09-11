@@ -6,4 +6,8 @@ Create two minimal Limits that set only the required fields (serviceRef/projectR
 
 ## Step 01
 
+Disable domain to facilitate domain deletion.
+
+## Step 02
+
 Try deleting the secret and other dependencies ensure that they are not deleted thanks to the finalizer.

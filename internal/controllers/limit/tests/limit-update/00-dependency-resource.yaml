@@ -39,3 +39,20 @@ spec:
     secretName: openstack-clouds
   managementPolicy: managed
   resource: {}
+---
+apiVersion: openstack.k-orc.cloud/v1alpha1
+kind: RegisteredLimit
+metadata:
+  name: registered-limit-update
+  labels:
+    test-case: limit-update
+spec:
+  cloudCredentialsRef:
+    cloudName: openstack-admin
+    secretName: openstack-clouds
+  managementPolicy: managed
+  resource:
+    description: RegisteredLimit from "update" test
+    serviceRef: service-limit-update
+    resourceName: limit-update
+    defaultLimit: 100

@@ -1,9 +1,3 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: setup-teardown
-status:
-  readyReplicas: 1
 ---
 apiVersion: openstack.k-orc.cloud/v1alpha1
 kind: Service
@@ -45,6 +39,40 @@ status:
       reason: Success
 ---
 apiVersion: openstack.k-orc.cloud/v1alpha1
+kind: RegisteredLimit
+metadata:
+  name: registered-limit-import
+status:
+  resource:
+    description: RegisteredLimit from "limit-import" test
+    resourceName: limit-import
+    defaultLimit: 100
+  conditions:
+    - type: Available
+      status: "True"
+      reason: Success
+    - type: Progressing
+      status: "False"
+      reason: Success
+---
+apiVersion: openstack.k-orc.cloud/v1alpha1
+kind: RegisteredLimit
+metadata:
+  name: registered-limit-import-nonexistent-resource
+status:
+  resource:
+    description: RegisteredLimit from "limit-import" test
+    resourceName: limit-import-nonexistent-resource
+    defaultLimit: 100
+  conditions:
+    - type: Available
+      status: "True"
+      reason: Success
+    - type: Progressing
+      status: "False"
+      reason: Success
+---
+apiVersion: openstack.k-orc.cloud/v1alpha1
 kind: Limit
 metadata:
   name: limit-import
@@ -61,8 +89,6 @@ status:
 ---
 apiVersion: kuttl.dev/v1beta1
 kind: TestAssert
-collectors:
-  - selector: app=setup-teardown
 commands:
   - script: |-
       cd $(dirname ${E2E_KUTTL_OSCLOUDS})

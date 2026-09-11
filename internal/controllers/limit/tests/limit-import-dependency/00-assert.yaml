@@ -30,6 +30,23 @@ status:
       reason: Progressing
 ---
 apiVersion: openstack.k-orc.cloud/v1alpha1
+kind: RegisteredLimit
+metadata:
+  name: registered-limit-import-dependency
+status:
+  resource:
+    description: RegisteredLimit from "import-dependency" test
+    resourceName: limit-import-dependency
+    defaultLimit: 100
+  conditions:
+    - type: Available
+      status: "True"
+      reason: Success
+    - type: Progressing
+      status: "False"
+      reason: Success
+---
+apiVersion: openstack.k-orc.cloud/v1alpha1
 kind: Limit
 metadata:
   name: limit-import-dependency

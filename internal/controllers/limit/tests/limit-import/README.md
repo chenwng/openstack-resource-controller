@@ -12,3 +12,7 @@ Create a limit whose resource name is a superstring of the one specified in the 
 
 Create a limit matching the filter and verify that the observed status on the imported limit corresponds to the spec of the created limit.
 Also, confirm that it does not adopt any limit whose name is a superstring of its own.
+
+## Step 03
+
+Disable domain to facilitate domain deletion.

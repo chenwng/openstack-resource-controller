@@ -41,6 +41,40 @@ spec:
   resource: {}
 ---
 apiVersion: openstack.k-orc.cloud/v1alpha1
+kind: RegisteredLimit
+metadata:
+  name: registered-limit-import
+  labels:
+    test-case: limit-import
+spec:
+  cloudCredentialsRef:
+    cloudName: openstack-admin
+    secretName: openstack-clouds
+  managementPolicy: managed
+  resource:
+    description: RegisteredLimit from "limit-import" test
+    serviceRef: service-limit-import
+    resourceName: limit-import
+    defaultLimit: 100
+---
+apiVersion: openstack.k-orc.cloud/v1alpha1
+kind: RegisteredLimit
+metadata:
+  name: registered-limit-import-nonexistent-resource
+  labels:
+    test-case: limit-import
+spec:
+  cloudCredentialsRef:
+    cloudName: openstack-admin
+    secretName: openstack-clouds
+  managementPolicy: managed
+  resource:
+    description: RegisteredLimit from "limit-import" test
+    serviceRef: service-limit-import
+    resourceName: limit-import-nonexistent-resource
+    defaultLimit: 100
+---
+apiVersion: openstack.k-orc.cloud/v1alpha1
 kind: Limit
 metadata:
   name: limit-import

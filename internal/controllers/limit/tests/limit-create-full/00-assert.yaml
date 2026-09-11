@@ -1,9 +1,3 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: setup-teardown
-status:
-  readyReplicas: 1
 ---
 apiVersion: openstack.k-orc.cloud/v1alpha1
 kind: Service
@@ -34,6 +28,40 @@ kind: Domain
 metadata:
   name: domain-limit-create-full
 status:
+  conditions:
+    - type: Available
+      status: "True"
+      reason: Success
+    - type: Progressing
+      status: "False"
+      reason: Success
+---
+apiVersion: openstack.k-orc.cloud/v1alpha1
+kind: RegisteredLimit
+metadata:
+  name: registered-limit-create-full-1
+status:
+  resource:
+    description: RegisteredLimit from "create full" test
+    resourceName: limit-create-full-1
+    defaultLimit: 100
+  conditions:
+    - type: Available
+      status: "True"
+      reason: Success
+    - type: Progressing
+      status: "False"
+      reason: Success
+---
+apiVersion: openstack.k-orc.cloud/v1alpha1
+kind: RegisteredLimit
+metadata:
+  name: registered-limit-create-full-2
+status:
+  resource:
+    description: RegisteredLimit from "create full" test
+    resourceName: limit-create-full-2
+    defaultLimit: 100
   conditions:
     - type: Available
       status: "True"
@@ -78,8 +106,6 @@ status:
 ---
 apiVersion: kuttl.dev/v1beta1
 kind: TestAssert
-collectors:
-  - selector: app=setup-teardown
 commands:
   - script: |-
       cd $(dirname ${E2E_KUTTL_OSCLOUDS})

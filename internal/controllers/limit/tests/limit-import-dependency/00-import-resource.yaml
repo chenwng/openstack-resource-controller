@@ -29,6 +29,23 @@ spec:
       name: project-limit-import-dependency
 ---
 apiVersion: openstack.k-orc.cloud/v1alpha1
+kind: RegisteredLimit
+metadata:
+  name: registered-limit-import-dependency
+  labels:
+    test-case: limit-import-dependency
+spec:
+  cloudCredentialsRef:
+    cloudName: openstack-admin
+    secretName: openstack-clouds
+  managementPolicy: managed
+  resource:
+    description: RegisteredLimit from "import-dependency" test
+    serviceRef: service-limit-import-dependency
+    resourceName: limit-import-dependency
+    defaultLimit: 100
+---
+apiVersion: openstack.k-orc.cloud/v1alpha1
 kind: Limit
 metadata:
   name: limit-import-dependency
