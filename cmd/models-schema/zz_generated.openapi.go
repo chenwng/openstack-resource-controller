@@ -5559,7 +5559,7 @@ func schema_openstack_resource_controller_v2_api_v1alpha1_LimitResourceSpec(ref 
 				Properties: map[string]spec.Schema{
 					"description": {
 						SchemaProps: spec.SchemaProps{
-							Description: "description is a human-readable description for the resource.",
+							Description: "description is a human-readable description for the resource. Note, currently, there is an issue with keystone that it fails to clear the description field when Description is updated to empty.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -5594,7 +5594,7 @@ func schema_openstack_resource_controller_v2_api_v1alpha1_LimitResourceSpec(ref 
 					},
 					"resourceLimit": {
 						SchemaProps: spec.SchemaProps{
-							Description: "resourceLimit is the override value of the limit.",
+							Description: "resourceLimit is the override value of the limit. Note, currently, there is an issue with keystone that it fails to set the resourceLimit field to zero when ResourceLimit is updated to zero.",
 							Default:     0,
 							Type:        []string{"integer"},
 							Format:      "int32",

@@ -21,6 +21,8 @@ package v1alpha1
 // +kubebuilder:validation:XValidation:rule="!(has(self.projectRef) && has(self.domainRef))",message="projectRef and domainRef are mutually exclusive"
 type LimitResourceSpec struct {
 	// description is a human-readable description for the resource.
+	// Note, currently, there is an issue with keystone that it fails to clear the description field
+	// when Description is updated to empty.
 	// +kubebuilder:validation:MinLength:=1
 	// +kubebuilder:validation:MaxLength:=255
 	// +optional
@@ -54,6 +56,8 @@ type LimitResourceSpec struct {
 	ResourceName string `json:"resourceName,omitempty"`
 
 	// resourceLimit is the override value of the limit.
+	// Note, currently, there is an issue with keystone that it fails to set the resourceLimit field to zero
+	// when ResourceLimit is updated to zero.
 	// +kubebuilder:validation:Minimum=-1
 	// +required
 	ResourceLimit int32 `json:"resourceLimit"`
@@ -112,7 +116,7 @@ type LimitResourceStatus struct {
 
 	// resourceLimit is the override value of the limit.
 	// +optional
-	ResourceLimit int32 `json:"resourceLimit,omitempty"`
+	ResourceLimit *int32 `json:"resourceLimit,omitempty"`
 
 	// resourceName is the name of the resource this limit is associated with.
 	// +kubebuilder:validation:MaxLength=1024

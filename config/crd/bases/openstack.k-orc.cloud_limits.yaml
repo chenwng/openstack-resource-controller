@@ -182,8 +182,10 @@ spec:
                   resource must be specified if the management policy is `managed`.
                 properties:
                   description:
-                    description: description is a human-readable description for the
-                      resource.
+                    description: |-
+                      description is a human-readable description for the resource.
+                      Note, currently, there is an issue with keystone that it fails to clear the description field
+                      when Description is updated to empty.
                     maxLength: 255
                     minLength: 1
                     type: string
@@ -210,7 +212,10 @@ spec:
                     - message: projectRef is immutable
                       rule: self == oldSelf
                   resourceLimit:
-                    description: resourceLimit is the override value of the limit.
+                    description: |-
+                      resourceLimit is the override value of the limit.
+                      Note, currently, there is an issue with keystone that it fails to set the resourceLimit field to zero
+                      when ResourceLimit is updated to zero.
                     format: int32
                     minimum: -1
                     type: integer

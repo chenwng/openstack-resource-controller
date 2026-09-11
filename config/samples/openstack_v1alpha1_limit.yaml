@@ -11,7 +11,7 @@ spec:
   resource:
     description: Nova limit servers for project demo
     serviceRef: nova
-    projectRef: demo # Either projectRef or domainRef must be provided.
-    domainRef: default
+    projectRef: demo # Either projectRef or domainRef must be provided but not both at the same time.
+    # domainRef: default
     resourceName: servers
     resourceLimit: 10

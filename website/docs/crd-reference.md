@@ -2326,12 +2326,12 @@ _Appears in:_
 
 | Field | Description | Default | Validation |
 | --- | --- | --- | --- |
-| `description` _string_ | description is a human-readable description for the resource. |  | MaxLength: 255 <br />MinLength: 1 <br />Optional: \{\} <br /> |
+| `description` _string_ | description is a human-readable description for the resource.<br />Note, currently, there is an issue with keystone that it fails to clear the description field<br />when Description is updated to empty. |  | MaxLength: 255 <br />MinLength: 1 <br />Optional: \{\} <br /> |
 | `serviceRef` _[KubernetesNameRef](#kubernetesnameref)_ | serviceRef is a reference to the ORC Service which this resource is associated with. |  | MaxLength: 253 <br />MinLength: 1 <br />Required: \{\} <br /> |
 | `projectRef` _[KubernetesNameRef](#kubernetesnameref)_ | projectRef is a reference to the ORC Project which this resource is associated with.<br />Either Domain ID or Project ID must be provided.<br />https://opendev.org/openstack/keystone/src/commit/30ef2ffa65a3486ef882f00538e20f2253c57d4c/keystone/limit/schema.py#L323-L340 |  | MaxLength: 253 <br />MinLength: 1 <br />Optional: \{\} <br /> |
 | `domainRef` _[KubernetesNameRef](#kubernetesnameref)_ | domainRef is a reference to the ORC Domain which this resource is associated with.<br />Either Domain ID or Project ID must be provided.<br />https://opendev.org/openstack/keystone/src/commit/30ef2ffa65a3486ef882f00538e20f2253c57d4c/keystone/limit/schema.py#L323-L340 |  | MaxLength: 253 <br />MinLength: 1 <br />Optional: \{\} <br /> |
 | `resourceName` _string_ | resourceName is the name of the resource this limit is associated with. |  | MaxLength: 255 <br />MinLength: 1 <br />Pattern: `^[\S]+$` <br />Required: \{\} <br /> |
-| `resourceLimit` _integer_ | resourceLimit is the override value of the limit. |  | Minimum: -1 <br />Required: \{\} <br /> |
+| `resourceLimit` _integer_ | resourceLimit is the override value of the limit.<br />Note, currently, there is an issue with keystone that it fails to set the resourceLimit field to zero<br />when ResourceLimit is updated to zero. |  | Minimum: -1 <br />Required: \{\} <br /> |
 
 
 #### LimitResourceStatus
